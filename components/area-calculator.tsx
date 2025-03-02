@@ -205,7 +205,7 @@ export default function AreaCalculator() {
 
   return (
     <div className="flex flex-col items-center gap-4">
-      <Card className="border shadow-md p-0">
+      <Card className="border shadow-md p-0 overflow-hidden">
         <CardContent className="p-0">
           <canvas
             ref={canvasRef}
