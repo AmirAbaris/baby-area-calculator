@@ -14,6 +14,17 @@ export default function AreaCalculator() {
   const [area, setArea] = useState<number | null>(null)
   const [canvasSize, setCanvasSize] = useState({ width: 600, height: 400 })
 
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    const ctx = canvas.getContext("2d")
+    if (!ctx) return
+
+    drawGrid(ctx, canvas.width, canvas.height)
+  }, [canvasSize]) // Runs when the canvas size updates
+
+
   // Initialize canvas and handle resize
   useEffect(() => {
     const handleResize = () => {
